@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialSphere - Platformă Avansată de Inteligență Socială & Dinamică Umană</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Space Grotesk & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Lumini ambientale futuriste -->
+    <div class="ambient-glow glow-top"></div>
+    <div class="ambient-glow glow-bottom"></div>
+
+    <!-- Container Notificări Toast -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Antet & Navigație Futuristică -->
+    <header class="main-header">
+        <div class="header-inner">
+            <div class="brand-logo" onclick="schimbaSectiune('hero')">
+                <div class="logo-core">
+                    <span class="logo-pulse"></span>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="18" cy="5" r="3"></circle>
+                        <circle cx="6" cy="12" r="3"></circle>
+                        <circle cx="18" cy="19" r="3"></circle>
+                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                    </svg>
+                </div>
+                <div class="brand-name">
+                    <span>Social<strong>Sphere</strong></span>
+                    <span class="brand-tag">v7.16 • Social Intelligence Core</span>
+                </div>
+            </div>
+
+            <!-- Meniu Navigație SPA (Toate ramurile) -->
+            <nav class="nav-links">
+                <button class="nav-btn active" id="nav-hero" onclick="schimbaSectiune('hero')">Acasă</button>
+                <button class="nav-btn" id="nav-piloni" onclick="schimbaSectiune('piloni')">Pilonii Comunicării</button>
+                <button class="nav-btn" id="nav-simulator" onclick="schimbaSectiune('simulator')">
+                    <span class="live-dot"></span> Simulator Decizii
+                </button>
+                <button class="nav-btn" id="nav-reformulari" onclick="schimbaSectiune('reformulari')">Laborator Reformulări</button>
+                <button class="nav-btn" id="nav-nonverbal" onclick="schimbaSectiune('nonverbal')">Decodor Non-Verbal</button>
+                <button class="nav-btn" id="nav-antimanipulare" onclick="schimbaSectiune('antimanipulare')">Scut Anti-Manipulare</button>
+                <button class="nav-btn" id="nav-radar" onclick="schimbaSectiune('radar')">Diagnostic EQ</button>
+                <button class="nav-btn" id="nav-misiuni" onclick="schimbaSectiune('misiuni')">Misiuni Zilnice</button>
+            </nav>
+
+            <!-- Widget XP Avansat & Buton de Deschidere Ghid Niveluri -->
+            <div class="user-stats-pill" onclick="deschideModalRanguri()" title="Click aici pentru a vedea piramida celor 5 niveluri și ce înseamnă fiecare">
+                <div class="xp-gem" id="xpGemIcon">✦</div>
+                <div class="xp-info">
+                    <div class="xp-top-row">
+                        <span id="headerLevelTag" class="lvl-badge">Nivel 1</span>
+                        <strong id="headerRankName">Inițiat Social</strong>
+                        <span class="info-pill-hint">Ghid Ranguri ℹ</span>
+                    </div>
+                    <div class="xp-progress-wrap">
+                        <div class="xp-bar"><div id="headerXpBar" class="xp-bar-fill" style="width: 25%;"></div></div>
+                        <span id="headerXpRatio" class="xp-ratio-text">120 / 200 XP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conținut Principal SPA -->
+    <main class="main-content">
+
+        <!-- =========================================================
+             1. ECRANUL HERO
+             ========================================================= -->
+        <section id="section-hero" class="content-view active">
+            <div class="hero-wrap">
+                <div class="hero-badge">
+                    <span class="sparkle">✨</span> Arta Conversației, Conexiunii și Influenței Pozitive
+                </div>
+                <h1 class="hero-title">
+                    Transformă-ți prezența.<br>
+                    <span class="gradient-text">Stăpânește dinamica socială.</span>
+                </h1>
+                <p class="hero-sub">
+                    Abilitățile sociale sunt cel mai puternic multiplicator al succesului tău academic, profesional și personal. Explorează ramurile interactive create pentru a elimina stângăcia, a detecta manipularea și a crea relații bazate pe respect reciproc.
+                </p>
+
+                <div class="hero-cta-group">
+                    <button class="btn btn-primary" onclick="schimbaSectiune('simulator')">
+                        <span>Lansează Simulatorul de Scenarii (7 Cazuri)</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                    <button class="btn btn-secondary" onclick="deschideModalRanguri()">
+                        <span>🏆 Ce înseamnă fiecare Nivel (Piramida EQ)</span>
+                    </button>
+                    <button class="btn btn-outline" onclick="schimbaSectiune('antimanipulare')">
+                        <span>🛡️ Scutul Anti-Manipulare</span>
+                    </button>
+                    <button class="btn btn-ghost" onclick="deschideModalDespreProiect()">
+                        <span>📖 Fișă Tehnică & Evaluare Proiect</span>
+                    </button>
+                </div>
+
+                <!-- Grilă de explorare rapidă pe module -->
+                <div class="metrics-grid">
+                    <div class="metric-card" onclick="schimbaSectiune('piloni')">
+                        <div class="metric-icon">🏛️</div>
+                        <h3>Cei 4 Piloni</h3>
+                        <p>Fundamentul teoretic și regulile de aur din psihologia socială.</p>
+                        <span class="card-link">Citește ghidul complet →</span>
+                    </div>
+
+                    <div class="metric-card" onclick="schimbaSectiune('simulator')">
+                        <div class="metric-icon">🎮</div>
+                        <h3>Simulatorul de Situații</h3>
+                        <p>7 scenarii din viața reală. Răspunsurile greșite îți scad XP, cele optime te promovează!</p>
+                        <span class="card-link">Intră în simulare →</span>
+                    </div>
+
+                    <div class="metric-card" onclick="schimbaSectiune('reformulari')">
+                        <div class="metric-icon">🔄</div>
+                        <h3>Laborator de Reformulare</h3>
+                        <p>Cum înlocuiești frazele toxice sau pasive cu replici sigure și elegante.</p>
+                        <span class="card-link">Vezi dicționarul de replici →</span>
+                    </div>
+
+                    <div class="metric-card" onclick="schimbaSectiune('antimanipulare')">
+                        <div class="metric-icon">🛡️</div>
+                        <h3>Scut Anti-Manipulare</h3>
+                        <p>Recunoaște victimizarea falsă, pasiv-agresivitatea și învinuirea nemeritată.</p>
+                        <span class="card-link">Explorează scutul →</span>
+                    </div>
+                </div>
+
+                <!-- Generator Interactiv de Spărgătoare de Gheață (Icebreaker) -->
+                <div class="icebreaker-box">
+                    <div class="icebreaker-header">
+                        <div class="icon-chip">⚡ Generator Spărgător de Gheață (Icebreaker Engine)</div>
+                        <button class="btn-icon" onclick="genereazaIcebreaker()" title="Generează altul">
+                            ↻ Altul
+                        </button>
+                    </div>
+                    <blockquote id="icebreakerQuote" class="icebreaker-quote">
+                        „Observ că citești cartea aceea / ești pasionat de proiectul acesta. Ce te-a atras cel mai mult la el?”
+                    </blockquote>
+                    <div class="icebreaker-meta">
+                        <span id="icebreakerContext" class="badge-subtle">Context: Școală / Grup Nou</span>
+                        <span class="tip-text">Sfat: Menține privirea prietenoasă și zâmbetul relaxat timp de 2-3 secunde.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             2. PILONII ABILITĂȚILOR SOCIALE & ANTRENORUL DE PAUZĂ
+             ========================================================= -->
+        <section id="section-piloni" class="content-view">
+            <div class="section-heading">
+                <span class="section-tag">Fundament Psihologic</span>
+                <h2>Cei 4 Piloni ai Dinamicii Sociale</h2>
+                <p>Abilitățile sociale sunt un cod pe care îl poți învăța. Iată cele patru direcții esențiale:</p>
+            </div>
+
+            <!-- Mini-Instrument Interactiv: Antrenorul de Pauză de 2 Secunde (The Power Pause Trainer) -->
+            <div class="pause-trainer-card">
+                <div class="pause-trainer-header">
+                    <div class="icon-chip" style="color: var(--accent-emerald);">⏱️ Antrenament de Calibrare: Pauza Strategică de 2 Secunde</div>
+                    <span class="badge-subtle">Micro-Exercițiu Interactiv</span>
+                </div>
+                <p class="pause-trainer-desc">
+                    Oamenii nesiguri răspund instantaneu sau întrerup. Liderii calmi respiră și lasă <strong>exact 2 secunde</strong> înainte de a vorbi. Testează-ți reflexul: apasă «Simulează Tensiune», așteaptă ca ritmul cardiac să se calmeze și apasă «Răspunde» doar când cercul devine verde!
+                </p>
+                <div class="pause-interactive-area">
+                    <button id="btnStartPauseGame" class="btn btn-secondary btn-sm" onclick="incepeTestPauza()">
+                        Începe Testul de Răbdare
+                    </button>
+                    <div id="pauseCircle" class="pause-circle hidden">
+                        <span id="pauseCircleText">Așteaptă...</span>
+                    </div>
+                    <button id="btnRespondPauseGame" class="btn btn-primary btn-sm hidden" onclick="finalizeazaTestPauza()">
+                        Răspunde Acum!
+                    </button>
+                </div>
+                <div id="pauseResultFeedback" class="pause-feedback-msg hidden"></div>
+            </div>
+
+            <div class="pillars-container">
+                <!-- Pilon 1 -->
+                <article class="pillar-large-card" id="pillar-carisma">
+                    <div class="pillar-glow glow-cyan"></div>
+                    <div class="pillar-content">
+                        <div class="pillar-badge">Dimensiunea 01</div>
+                        <h3>Carismă & Prima Impresie (Căldură + Competență)</h3>
+                        <p class="pillar-summary">
+                            Cercetările de la Harvard arată că într-o primă interacțiune oamenii își pun inconștient două întrebări: <em>„Pot avea încredere în tine?”</em> (Căldură) și <em>„Pot să te respect?”</em> (Competență). Carisma autentică este armonia perfectă dintre acestea două.
+                        </p>
+                        
+                        <div class="pillar-tactics">
+                            <div class="tactic-item">
+                                <span class="tactic-num">01</span>
+                                <div>
+                                    <strong>Zâmbetul Lent (The Flooding Smile)</strong>
+                                    <p>Nu zâmbi mecanic din reflex. Privește persoana o fracțiune de secundă, apoi lasă un zâmbet autentic să-ți lumineze fața. Transmite că zâmbetul îi aparține exclusiv ei.</p>
+                                </div>
+                            </div>
+                            <div class="tactic-item">
+                                <span class="tactic-num">02</span>
+                                <div>
+                                    <strong>Contactul Vizual Triunghiular</strong>
+                                    <p>Mută privirea relaxat între ochiul stâng, ochiul drept și baza nasului. Transmite căldură și atenție fără senzația agresivă de holbare fixă.</p>
+                                </div>
+                            </div>
+                            <div class="tactic-item">
+                                <span class="tactic-num">03</span>
+                                <div>
+                                    <strong>Coborârea Tonului la Final de Frază</strong>
+                                    <p>Insecuritatea se trădează prin tonul ascendent la finalul propoziției (cerșirea aprobării). Vorbește calm, cu o ușoară coborâre a intonației la sfârșitul ideii.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pillar-footer">
+                            <button class="btn btn-outline btn-sm" onclick="deschidePilonDetalii('carisma')">
+                                Citește Masterclass Detaliat →
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Pilon 2 -->
+                <article class="pillar-large-card" id="pillar-ascultare">
+                    <div class="pillar-glow glow-violet"></div>
+                    <div class="pillar-content">
+                        <div class="pillar-badge">Dimensiunea 02</div>
+                        <h3>Ascultarea Activă & Validarea Emoțională</h3>
+                        <p class="pillar-summary">
+                            Cei mai mulți oameni nu ascultă ca să înțeleagă, ci doar așteaptă să le vină rândul la vorbă. Când asculți cu adevărat, devii memorabil instantaneu în ochii celorlalți.
+                        </p>
+
+                        <div class="pillar-tactics">
+                            <div class="tactic-item">
+                                <span class="tactic-num">01</span>
+                                <div>
+                                    <strong>Regula celor 80/20</strong>
+                                    <p>Lasă interlocutorul să vorbească 80% din timp. Tu ghidează doar conversația prin 20% întrebări deschise curioase și calde.</p>
+                                </div>
+                            </div>
+                            <div class="tactic-item">
+                                <span class="tactic-num">02</span>
+                                <div>
+                                    <strong>Tehnica Ecou & Etichetare</strong>
+                                    <p>Repetă ultimele 2-3 cuvinte ale celuilalt cu intonație caldă sau numește emoția: <em>„Pare că situația aceea te-a frustrat destul de mult, corect?”</em>.</p>
+                                </div>
+                            </div>
+                            <div class="tactic-item">
+                                <span class="tactic-num">03</span>
+                                <div>
+                                    <strong>Nu da sfaturi necerute</strong>
+                                    <p>Întreabă mai întâi: <em>„Ai nevoie doar să te descarci și să te ascult, sau vrei să căutăm împreună o soluție practică?”</em>.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pillar-footer">
+                            <button class="btn btn-outline btn-sm" onclick="deschidePilonDetalii('ascultare')">
+                                Citește Masterclass Detaliat →
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Pilon 3 -->
+                <article class="pillar-large-card" id="pillar-asertivitate">
+                    <div class="pillar-glow glow-pink"></div>
+                    <div class="pillar-content">
+                        <div class="pillar-badge">Dimensiunea 03</div>
+                        <h3>Asertivitate: Fermitate Fără Vinovăție</h3>
+                        <p class="pillar-summary">
+                            Asertivitatea este echilibrul de aur între pasivitate (a fi călcat în picioare din dorința de a mulțumi pe toată lumea) și agresivitate (a jigni pentru a te impune).
+                        </p>
+
+                        <div class="pillar-tactics">
+                            <div class="tactic-item">
+                                <span class="tactic-num">01</span>
+                                <div>
+                                    <strong>Formula „EU” în 3 Pași</strong>
+                                    <p>„Când se întâmplă [Faptul concret], mă simt [Emoția mea], iar pentru viitor propun să [Soluția].” Elimină acuzațiile toxice de tipul „Tu mereu...”.</p>
+                                </div>
+                            </div>
+                            <div class="tactic-item">
+                                <span class="tactic-num">02</span>
+                                <div>
+                                    <strong>Refuzul Curat (Fără Minciuni)</strong>
+                                    <p>Nu inventa scuze complicate. Spune ferm: <em>„Apreciez că te-ai gândit la mine, însă momentan nu pot prelua acest angajament.”</em>.</p>
+                                </div>
+                            </div>
+                            <div class="tactic-item">
+                                <span class="tactic-num">03</span>
+                                <div>
+                                    <strong>Tehnica Discului Zgâriat</strong>
+                                    <p>Dacă cineva insistă sau încearcă să te manipuleze emoțional, repetă aceeași frază neutră și politicoasă, pe un ton calm și egal.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pillar-footer">
+                            <button class="btn btn-outline btn-sm" onclick="deschidePilonDetalii('asertivitate')">
+                                Citește Masterclass Detaliat →
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Pilon 4 -->
+                <article class="pillar-large-card" id="pillar-conflicte">
+                    <div class="pillar-glow glow-emerald"></div>
+                    <div class="pillar-content">
+                        <div class="pillar-badge">Dimensiunea 04</div>
+                        <h3>Diplomație & Rezolvarea Conflictelor</h3>
+                        <p class="pillar-summary">
+                            În orice dezacord, obiectivul nu este să câștigi o ceartă și să pierzi relația, ci să găsești numitorul comun împotriva problemei, nu împotriva omului.
+                        </p>
+
+                        <div class="pillar-tactics">
+                            <div class="tactic-item">
+                                <span class="tactic-num">01</span>
+                                <div>
+                                    <strong>Separă Comportamentul de Caracter</strong>
+                                    <p>Nu spune: „Ești iresponsabil și neserios!”. Spune: „Faptul că materialul nu a fost trimis la timp a creat un blocaj pentru întreaga echipă”.</p>
+                                </div>
+                            </div>
+                            <div class="tactic-item">
+                                <span class="tactic-num">02</span>
+                                <div>
+                                    <strong>Înlocuiește „DAR” cu „ȘI”</strong>
+                                    <p>Cuvântul „dar” șterge tot ce ai spus înainte. Spune: <em>„Înțeleg perspectiva ta și, în același timp, trebuie să ținem cont și de termenul limită.”</em>.</p>
+                                </div>
+                            </div>
+                            <div class="tactic-item">
+                                <span class="tactic-num">03</span>
+                                <div>
+                                    <strong>Podul de Aur (Salvarea Aparențelor)</strong>
+                                    <p>Lasă-i întotdeauna celuilalt o cale demnă de retragere, fără să-l umilești public chiar și atunci când a greșit evident.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pillar-footer">
+                            <button class="btn btn-outline btn-sm" onclick="deschidePilonDetalii('conflicte')">
+                                Citește Masterclass Detaliat →
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             3. SIMULATORUL INTERACTIV DE SCENARII SOCIALE (7 SCENARII)
+             ========================================================= -->
+        <section id="section-simulator" class="content-view">
+            <div class="section-heading">
+                <span class="section-tag">Antrenament Virtual Interactiv</span>
+                <h2>Simulatorul de Decizii Sociale</h2>
+                <p>Alege oricare dintre cele 7 scenarii de mai jos. Fără etichete evidente — gândește singur care este reacția optimă!</p>
+            </div>
+
+            <!-- Selector de Scenarii afișat curat pe 2 rânduri (FĂRĂ SCROLLBAR) -->
+            <div class="scenario-selector-grid" id="scenarioTabsWrap">
+                <!-- Generat dinamic din JS cu cele 7 scenarii pe două rânduri fluide -->
+            </div>
+
+            <!-- Arena Simulatorului -->
+            <div class="simulator-arena">
+                <div class="arena-top">
+                    <div class="context-pill">
+                        <span id="scenarioCategoryBadge" class="badge-tag">Context Social</span>
+                        <span id="scenarioDifficulty" class="badge-tag">Nivel: Mediu</span>
+                    </div>
+                    <div class="scenario-feedback-score">
+                        <span>Impact XP la acest scenariu:</span>
+                        <strong id="scenarioGainedXp" class="text-glow">+0 XP</strong>
+                    </div>
+                </div>
+
+                <!-- Povestea / Situația de start -->
+                <div class="scenario-card">
+                    <div class="speaker-avatar" id="scenarioAvatar">🎭</div>
+                    <div class="speaker-bubble">
+                        <h3 id="scenarioTitle">Titlu Scenariu</h3>
+                        <p id="scenarioContextText">Descrierea detaliată a contextului...</p>
+                        <div class="quote-box" id="scenarioDialogue">
+                            „Dialogul sau replica la care trebuie să reacționezi.”
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Variantele de reacție (Curate, fără etichete care dau răspunsul) -->
+                <div class="options-container">
+                    <h4>Cum reacționezi? Alege răspunsul tău:</h4>
+                    <div id="scenarioOptionsList" class="scenario-options-grid">
+                        <!-- Populat dinamic din JS -->
+                    </div>
+                </div>
+
+                <!-- Panoul de Feedback Psihologic (Apare DUPĂ alegere) -->
+                <div id="scenarioFeedbackPanel" class="feedback-panel hidden">
+                    <div class="feedback-header">
+                        <span id="feedbackResultIcon" class="res-icon">✓</span>
+                        <div>
+                            <h4 id="feedbackResultTitle">Analiza Deciziei Tale</h4>
+                            <span id="feedbackResultSub">Stil identificat & analiză psihologică</span>
+                        </div>
+                    </div>
+                    <p id="feedbackExplanationText" class="feedback-text">
+                        Aici va apărea analiza detaliată a modului în care a fost perceput răspunsul tău.
+                    </p>
+                    <div class="feedback-action-row">
+                        <button class="btn btn-secondary btn-sm" onclick="reincearcaScenariulCurent()">
+                            ↻ Reîncearcă Scenariul
+                        </button>
+                        <button class="btn btn-primary btn-sm" onclick="urmatorulSauReiaScenariu()">
+                            Următorul Scenariu →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             4. LABORATORUL DE REFORMULĂRI
+             ========================================================= -->
+        <section id="section-reformulari" class="content-view">
+            <div class="section-heading">
+                <span class="section-tag">Dicționarul de Aur al Comunicării</span>
+                <h2>Laboratorul de Reformulare Asertivă</h2>
+                <p>Micșorează rezistența celorlalți și câștigă respect schimbând doar câteva cuvinte-cheie din limbajul cotidian.</p>
+            </div>
+
+            <!-- Filtre categorii reformulări -->
+            <div class="rephrase-filters">
+                <button class="filter-pill active" onclick="filtreazaReformulari('toate', this)">Toate Categoriile</button>
+                <button class="filter-pill" onclick="filtreazaReformulari('scoala', this)">Școală & Echipă</button>
+                <button class="filter-pill" onclick="filtreazaReformulari('prieteni', this)">Prieteni & Relații</button>
+                <button class="filter-pill" onclick="filtreazaReformulari('limite', this)">Limite & Spus „NU”</button>
+                <button class="filter-pill" onclick="filtreazaReformulari('tensiuni', this)">Dezamorsare Tensiuni</button>
+            </div>
+
+            <div id="rephraseGrid" class="rephrase-grid">
+                <!-- Generat dinamic din JS -->
+            </div>
+        </section>
+
+        <!-- =========================================================
+             5. DECODORUL DE LIMBAJ NON-VERBAL
+             ========================================================= -->
+        <section id="section-nonverbal" class="content-view">
+            <div class="section-heading">
+                <span class="section-tag">Decodificare Comportamentală</span>
+                <h2>Decodorul de Limbaj Non-Verbal</h2>
+                <p>Peste 65% din comunicare este non-verbală. Află ce transmit cu adevărat corpul, privirea și postura celor din jur.</p>
+            </div>
+
+            <div class="nonverbal-grid" id="nonverbalGrid">
+                <!-- Generat dinamic din JS -->
+            </div>
+        </section>
+
+        <!-- =========================================================
+             6. SCUTUL ANTI-MANIPULARE & TEHNICI DE APĂRARE
+             ========================================================= -->
+        <section id="section-antimanipulare" class="content-view">
+            <div class="section-heading">
+                <span class="section-tag">Autoprotecție Psihologică</span>
+                <h2>Scutul Anti-Manipulare & Răspunsuri de Urgență</h2>
+                <p>Cum recunoști tacticile toxice (inducerea vinovăției, victimismul, presiunea urgentă) și cum le dezamorsezi cu eleganță.</p>
+            </div>
+
+            <div class="shield-grid" id="shieldGrid">
+                <!-- Generat dinamic din JS -->
+            </div>
+        </section>
+
+        <!-- =========================================================
+             7. DIAGNOSTICUL RADAR AL INTELIGENȚEI SOCIALE (8 ÎNTREBĂRI)
+             ========================================================= -->
+        <section id="section-radar" class="content-view">
+            <div class="section-heading">
+                <span class="section-tag">Test Diagnostic Avansat</span>
+                <h2>Radarul Profilului Tău Social (8 Întrebări)</h2>
+                <p>Răspunde sincer pentru a calcula cele 4 axe esențiale ale inteligenței tale sociale și a primi profilul tău arhetipal.</p>
+            </div>
+
+            <div class="radar-layout">
+                <!-- Zona Chestionarului -->
+                <div class="quiz-glass-card" id="radarQuizContainer">
+                    <div class="quiz-step-indicator">
+                        <span>Întrebarea <strong id="radarCurrentStep">1</strong> din 8</span>
+                        <div class="progress-track">
+                            <div id="radarProgressBar" class="progress-fill" style="width: 12.5%;"></div>
+                        </div>
+                    </div>
+
+                    <h3 id="radarQuestionText" class="quiz-question">Textul întrebării diagnostic...</h3>
+                    <div id="radarOptionsWrap" class="quiz-options-list">
+                        <!-- Populat dinamic din JS -->
+                    </div>
+                </div>
+
+                <!-- Zona Rezultatului Radar (Apare la final) -->
+                <div class="radar-result-card hidden" id="radarResultContainer">
+                    <div class="result-header">
+                        <div class="badge-tag">Profil Evaluat cu Succes</div>
+                        <h3 id="profileArchetypeName">Arhetip: Liderul Diplomat și Empatic</h3>
+                        <p id="profileArchetypeDesc">Ești echilibrat, știi când să asculți și când să trasezi limite ferme fără agresivitate.</p>
+                    </div>
+
+                    <!-- Bare de competență -->
+                    <div class="skills-breakdown">
+                        <div class="skill-meter">
+                            <div class="skill-meta">
+                                <span>Carismă & Impact Inițial</span>
+                                <strong id="meterCarismaVal">75%</strong>
+                            </div>
+                            <div class="meter-bar"><div id="meterCarismaBar" class="meter-fill" style="width: 75%;"></div></div>
+                        </div>
+
+                        <div class="skill-meter">
+                            <div class="skill-meta">
+                                <span>Ascultare Activă & Empatie</span>
+                                <strong id="meterEmpatieVal">85%</strong>
+                            </div>
+                            <div class="meter-bar"><div id="meterEmpatieBar" class="meter-fill fill-cyan" style="width: 85%;"></div></div>
+                        </div>
+
+                        <div class="skill-meter">
+                            <div class="skill-meta">
+                                <span>Asertivitate & Spus „NU”</span>
+                                <strong id="meterAsertivitateVal">60%</strong>
+                            </div>
+                            <div class="meter-bar"><div id="meterAsertivitateBar" class="meter-fill fill-pink" style="width: 60%;"></div></div>
+                        </div>
+
+                        <div class="skill-meter">
+                            <div class="skill-meta">
+                                <span>Gestionare Stres & Conflicte</span>
+                                <strong id="meterCalmVal">70%</strong>
+                            </div>
+                            <div class="meter-bar"><div id="meterCalmBar" class="meter-fill fill-emerald" style="width: 70%;"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="action-recommendation-box">
+                        <h4>🎯 Recomandarea Ta Personalizată de Antrenament:</h4>
+                        <p id="profileCustomTip">
+                            Concentrează-te săptămâna aceasta pe Pilonul 3 (Asertivitate). Exersează refuzul politicos fără a oferi scuze lungi inventate.
+                        </p>
+                    </div>
+
+                    <div class="restart-quiz-row">
+                        <button class="btn btn-secondary btn-sm" onclick="reseteazaTestDiagnostic()">
+                            ↻ Reia Testul Diagnostic
+                        </button>
+                        <button class="btn btn-accent btn-sm" onclick="deschideCertificatModal()">
+                            🖨️ Descarcă / Printează Certificatul Digital
+                        </button>
+                        <button class="btn btn-primary btn-sm" onclick="schimbaSectiune('misiuni')">
+                            Vezi Misiunile Recomandate →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             8. MISIUNI ZILNICE & PROVOCĂRI PRACTICE (DAILY QUESTS)
+             ========================================================= -->
+        <section id="section-misiuni" class="content-view">
+            <div class="section-heading">
+                <span class="section-tag">Antrenament în Lumea Reală</span>
+                <h2>Micro-Misiuni Sociale Zilnice</h2>
+                <p>Teoria devine putere doar prin practică. Bifează provocările îndeplinite pentru a primi XP (sau debifează pentru a ajusta scorul).</p>
+            </div>
+
+            <div class="missions-dashboard">
+                <div class="missions-progress-card">
+                    <div>
+                        <h3>Progresul Tău Săptămânal</h3>
+                        <p class="text-muted">Fiecare provocare completată îți aduce puncte de experiență și îți crește rangul social.</p>
+                    </div>
+                    <div class="streak-badge">
+                        <span class="flame-icon">🔥</span>
+                        <div>
+                            <strong id="streakCount">4 Misiuni</strong>
+                            <span class="subtext">Completate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lista de misiuni bifabile -->
+                <div id="missionsList" class="missions-grid">
+                    <!-- Populat dinamic din JS -->
+                </div>
+
+                <!-- Formular adăugare provocare personalizată -->
+                <div class="custom-mission-card">
+                    <h4>+ Adaugă propria ta provocare socială</h4>
+                    <form onsubmit="adaugaMisiunePersonalizata(event)" class="custom-mission-form">
+                        <input type="text" id="customMissionInput" placeholder="Ex: Să salut cu zâmbet vânzătorul de la magazin și să-i urez o zi bună..." required>
+                        <button type="submit" class="btn btn-primary btn-sm">Adaugă Misiune (+30 XP)</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal Detalii Pilon Extins -->
+    <div id="pillarModal" class="modal-overlay hidden" onclick="inchideModalExterior(event, 'pillarModal')">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div>
+                    <span class="badge-tag" id="modalPillarCategory">Pilon</span>
+                    <h3 id="modalPillarTitle">Titlu Pilon</h3>
+                </div>
+                <button class="modal-close" onclick="inchideModal('pillarModal')">✕</button>
+            </div>
+            <div class="modal-body" id="modalPillarBody">
+                <!-- Populat dinamic din JS -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary btn-sm" onclick="inchideModal('pillarModal')">Închide</button>
+                <button class="btn btn-primary btn-sm" onclick="inchideModal('pillarModal'); schimbaSectiune('simulator');">
+                    Mergi la Simulator
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Niveluri & Piramida Rangurilor -->
+    <div id="ranksModal" class="modal-overlay hidden" onclick="inchideModalExterior(event, 'ranksModal')">
+        <div class="modal-card modal-lg">
+            <div class="modal-header">
+                <div>
+                    <span class="badge-tag">Piramida Competenței Sociale</span>
+                    <h3>Cele 5 Niveluri & Ce Înseamnă Fiecare</h3>
+                </div>
+                <button class="modal-close" onclick="inchideModal('ranksModal')">✕</button>
+            </div>
+            <div class="modal-body" id="ranksModalBody">
+                <!-- Populat dinamic din JS cu cele 5 niveluri și explicația fiecăruia -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary btn-sm" onclick="inchideModal('ranksModal')">Am înțeles piramida ✓</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Certificat Digital Oficial (Printabil / PDF) -->
+    <div id="certificateModal" class="modal-overlay hidden" onclick="inchideModalExterior(event, 'certificateModal')">
+        <div class="modal-card modal-lg">
+            <div class="modal-header">
+                <div>
+                    <span class="badge-tag">Recunoaștere Oficială</span>
+                    <h3>Certificat de Inteligență Socială & Comunicare</h3>
+                </div>
+                <button class="modal-close" onclick="inchideModal('certificateModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="certificate-frame" id="printableCertificate">
+                    <div class="cert-watermark">SOCIALSPHERE</div>
+                    <div class="cert-header">
+                        <div class="cert-seal">★ SOCIALSPHERE ACADEMY ★</div>
+                        <span class="cert-title">CERTIFICAT DE ABSOLVIRE</span>
+                        <span class="cert-subtitle">PROGRAMUL DE INTELIGENȚĂ SOCIALĂ & DINAMICĂ RELAȚIONALĂ</span>
+                    </div>
+
+                    <p class="cert-intro">Se conferă prezentul certificat utilizatorului:</p>
+                    <h2 id="certUserName" class="cert-student-name">Alexandru Popescu</h2>
+                    <p class="cert-body-text">
+                        Pentru parcurgerea cu succes a modulelor de <strong>Carismă & Prima Impresie</strong>, <strong>Ascultare Activă</strong>, <strong>Asertivitate</strong> și <strong>Scutul Anti-Manipulare</strong>, dovedind competențe avansate de calibrare socială la rangul de:
+                    </p>
+                    <div class="cert-rank-display" id="certRankDisplay">Inițiat Social (Nivel 1)</div>
+
+                    <div class="cert-footer-row">
+                        <div>
+                            <span class="cert-label">Data Eliberării:</span>
+                            <strong id="certIssueDate">10 Noiembrie 2026</strong>
+                        </div>
+                        <div class="cert-badge-valid">
+                            ✓ VERIFICAT DIGITAL EQ-CORE
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary btn-sm" onclick="inchideModal('certificateModal')">Închide</button>
+                <button class="btn btn-outline btn-sm" onclick="editeazaNumeCertificat()">Schimbă Numele</button>
+                <button class="btn btn-primary btn-sm" onclick="printeazaCertificatul()">🖨️ Printează / Salvează PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Despre Proiect / Fișă Tehnică pentru Evaluare Școală -->
+    <div id="aboutProjectModal" class="modal-overlay hidden" onclick="inchideModalExterior(event, 'aboutProjectModal')">
+        <div class="modal-card modal-lg">
+            <div class="modal-header">
+                <div>
+                    <span class="badge-tag">Documentație & Notă Tehnică</span>
+                    <h3>Fișa Tehnică a Proiectului (Pentru Evaluatori)</h3>
+                </div>
+                <button class="modal-close" onclick="inchideModal('aboutProjectModal')">✕</button>
+            </div>
+            <div class="modal-body" style="font-size: 0.92rem; line-height: 1.65;">
+                <h4>🎯 Obiectivul Pedagogic al Platformei</h4>
+                <p>SocialSphere este un prototip funcțional de tip Single Page Application (SPA) conceput pentru a transpune teoriile consacrate de psihologie socială (Harvard Negotiation Project, Comunicarea Non-Violentă de Marshall Rosenberg, Principiile Cialdini) într-un format interactiv, aplicat și captivant pentru elevi și tineri.</p>
+                <br>
+                <h4>🛠️ Arhitectură Tehnică</h4>
+                <ul style="padding-left: 1.25rem;">
+                    <li><strong>Exact 3 fișiere independente:</strong> <code>index.html</code> (structură semantică), <code>style.css</code> (sistem de design cyberpunk-luxury cu CSS Grid & Flexbox), <code>script.js</code> (motor SPA nativ fără framework-uri externe).</li>
+                    <li><strong>Persistență Locală:</strong> Datele utilizatorului (XP, scenarii bifate, misiuni) sunt persistate în <code>localStorage</code> și pot fi resetate printr-un singur click pentru prezentări.</li>
+                    <li><strong>Sintetizator Audio Nativ:</strong> Folosește Web Audio API pentru a genera sunete polifonice sintetizate fără fișiere audio externe (.mp3/.wav).</li>
+                </ul>
+                <br>
+                <h4>🧠 Cele 6 Ramuri Funcționale</h4>
+                <p>1. Ghidul celor 4 Piloni Teoretici • 2. Simulatorul de 7 Scenarii Sociale • 3. Laboratorul de Reformulare • 4. Decodorul Non-Verbal • 5. Scutul Anti-Manipulare • 6. Testul Diagnostic Radar EQ (8 axe).</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary btn-sm" onclick="inchideModal('aboutProjectModal')">Am înțeles fișa ✓</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bara Persistentă de Reset Demo (Vizibilă pe fiecare pagină în subsol) -->
+    <div class="quick-demo-dock">
+        <span class="dock-label">Panou Control Prezentare:</span>
+        <button class="btn-demo-reset" onclick="reseteazaTotulDemo()" title="Resetează punctele XP, răspunsurile din simulator și testul diagnostic la starea inițială">
+            ↻ Resetează Datele Demo
+        </button>
+        <button class="btn-clean" onclick="deschideCertificatModal()" style="margin-left: 0.35rem; font-size: 0.78rem;">
+            📜 Certificat Digital
+        </button>
+        <button class="btn-clean" onclick="deschideModalDespreProiect()" style="margin-left: 0.35rem; font-size: 0.78rem;">
+            ℹ Fișă Proiect
+        </button>
+    </div>
+
+    <!-- Subsol (Footer) -->
+    <footer class="main-footer">
+        <div class="footer-inner">
+            <div class="footer-left">
+                <strong>SocialSphere</strong> — Platformă Educațională de Dezvoltare a Abilităților Sociale & Inteligenței Emoționale.
+                <p>Construit pentru elevi, tineri și oricine dorește să construiască relații autentice, respect și carismă.</p>
+            </div>
+            <div class="footer-right">
+                <button class="btn-clean" onclick="deschideModalDespreProiect()">
+                    Fișă Tehnică Evaluare
+                </button>
+                <button class="btn-clean" onclick="reseteazaTotulDemo()">
+                    ↻ Resetează Datele Demo la Zero
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scriptul principal (logica aplicației) -->
+    <script src="script.js"></script>
+</body>
+</html>
